@@ -32,9 +32,10 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/chatbotFramework?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
-    username: root
-    password:
+    url: jdbc:postgresql://localhost:5432/chatbotframework
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -43,9 +44,13 @@ spring:
         prepStmtCacheSize: 250
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
-    contexts: dev, faker
+    contexts: dev #, faker
   mail:
     host: localhost
     port: 25
