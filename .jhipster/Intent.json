@@ -1,0 +1,60 @@
+{
+  "annotations": {
+    "changelogDate": "20250902045313"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Intent",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "intentResponse",
+      "otherEntityRelationshipName": "intent",
+      "relationshipName": "response",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "utterance",
+      "otherEntityRelationshipName": "intent",
+      "relationshipName": "utterances",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "followup",
+      "otherEntityRelationshipName": "intent",
+      "relationshipName": "followups",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "bot",
+      "relationshipName": "bot",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "intentEntity",
+      "otherEntityRelationshipName": "intents",
+      "relationshipName": "entities",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

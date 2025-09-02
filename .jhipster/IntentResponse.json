@@ -1,0 +1,27 @@
+{
+  "annotations": {
+    "changelogDate": "20250902045317"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "message",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "IntentResponse",
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "intent",
+      "otherEntityRelationshipName": "response",
+      "relationshipName": "intent",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

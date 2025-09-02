@@ -1,0 +1,54 @@
+entity Bot {
+  name String required minlength(3) maxlength(50)
+  description String
+  active Boolean
+}
+
+entity Intent {
+  name String required unique
+  description String
+}
+
+entity IntentEntity {
+  name String required
+  optional Boolean
+}
+
+entity Utterance {
+  text String required
+  language String
+}
+
+entity Followup {
+  question String required
+  targetEntity String required
+  order Integer
+}
+
+entity IntentResponse {
+  message String required
+}
+
+relationship ManyToOne {
+  Intent{bot(name)} to Bot
+}
+
+relationship ManyToMany {
+  Intent{entities(name)} to IntentEntity{intents}
+}
+
+relationship OneToMany {
+  Intent{utterances} to Utterance{intent(name)}
+}
+
+relationship OneToMany {
+  Intent{followups} to Followup{intent(name)}
+}
+
+relationship OneToOne {
+  Intent{response} to IntentResponse{intent(name)}
+}
+
+service all with serviceClass
+dto all with mapstruct
+paginate Intent, IntentEntity with pagination

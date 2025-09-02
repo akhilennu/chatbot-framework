@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20250902045316"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "question",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "targetEntity",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "order",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Followup",
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "intent",
+      "otherEntityRelationshipName": "followups",
+      "relationshipName": "intent",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

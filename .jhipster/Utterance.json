@@ -1,0 +1,31 @@
+{
+  "annotations": {
+    "changelogDate": "20250902045315"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "text",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "language",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Utterance",
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "intent",
+      "otherEntityRelationshipName": "utterances",
+      "relationshipName": "intent",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
